@@ -8,22 +8,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,700&family=Asap+Condensed:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="corner-border corner-left"></div>
-  <div class="corner-border corner-right"></div>
+  
+  <div class="corner-container">
+    <div class="corner-border corner-left"></div>
+    <div class="corner-border corner-right"></div>
+  </div>
+
 
   <header class="hero">
-  <img src="img/holy-cow-logo.png" alt="Holy Cow Logo" class="logo-centered" />
-  <h1 class="site-title">Holy Cow Farm Sanctuary</h1>
-  <p class="site-tagline">A family-run forever home for rescued farm animals.</p>
-</header>
+    <img src="img/holy-cow-logo.png" alt="Holy Cow Logo" class="logo-centered" />
+    <h1 class="site-title">Holy Cow Farm Sanctuary</h1>
+    <p class="site-tagline">A family-run forever home for rescued farm animals.</p>
+  </header>
 
 
   <main class="content">
-    <section class="intro">
-      <p>Images and videos soon</p>
-      <!-- Video or gallery goes here -->
+    <section class="carousel">
+      <div class="slider">
+        <div class="slides" id="slideContainer"></div>
+        <div class="nav nav-left" onclick="prevSlide()">&#9664;</div>
+        <div class="nav nav-right" onclick="nextSlide()">&#9654;</div>
+        <div class="edge-fade left-fade"></div>
+        <div class="edge-fade right-fade"></div>
+      </div>
     </section>
+
+    <script src="js/slider.js"></script>
+
+    <div class="announcement animate-on-scroll">
+      <h2>Meet the Animals, Support the Sanctuary 🐾</h2>
+      <p>
+        Holy Cow Sanctuary is dedicated to providing lifelong care and kindness  
+        to farm animals in need. While we're not open to the general public,  
+        we welcome inquiries about private visits, donations, or ways to support our herd.<br><br>
+        Interested in scheduling a visit or learning more?<br>
+        Email us anytime at <a href="mailto:info@holycowsanctuary.org">info@holycowsanctuary.org</a>.<br><br>
+        Every donation goes directly toward feed, shelter, and medical care<br>
+        —  thank you for being part of their story.
+      </p>
+    </div>
+
+
+</div>
+
+
   </main>
+
+
 
 <footer class="footer">
   <ul class="contact-list">
@@ -52,5 +83,8 @@
   <!-- Corner borders -->
   <div class="corner-border corner-left"></div>
   <div class="corner-border corner-right"></div>
+
+  <script src="js/main.js"></script>
+
 </body>
 </html>

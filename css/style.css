@@ -1,7 +1,99 @@
+:root {
+  --color-bg: #fffaf0;
+  --color-text: #333333;
+  --color-accent: #7c3e12;
+  --color-link: #000000;
+  --color-link-hover: #555555;
+  --color-link-visited: #888888;
+}
+
+
+/* slider styles */
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 3rem auto;
+  overflow: hidden;
+  height: 300px;
+}
+
+.slider {
+  position: relative;
+  height: 100%;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%;
+}
+
+.slides img {
+  width: calc(100% / 3);
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin: 0 10px;
+  transition: transform 0.4s ease;
+}
+
+.slides img:hover {
+  transform: scale(1.5);
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slider:hover .nav {
+  opacity: 1;
+}
+
+.nav-left {
+  left: 10px;
+}
+
+.nav-right {
+  right: 10px;
+}
+
+.edge-fade {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to right, var(--color-bg), transparent);
+}
+
+.left-fade {
+  left: 0;
+}
+
+.right-fade {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg), transparent);
+}
+
+/* end slider styles */
+
+
 body {
   margin: 0;
-  background-color: #F5F5F5;
-  color: #000000;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-family: 'Asap', sans-serif;
   line-height: 1.6;
 }
@@ -33,34 +125,41 @@ body {
 
 .site-tagline {
   font-size: 1.2rem;
-  color: #333;
+  color: var(--color-text);
 }
 
 
+
+/* corner graphic styles start */
+.corner-container {
+  position: relative;
+  width: 100%;
+  height: 0; /* Prevent from taking up vertical space unless needed */
+}
+
 .corner-border {
-  position: fixed;
-  top: 0;
-  width: 180px;         /* adjust based on desired size */
-  height: 180px;
-  background-repeat: no-repeat;
-  background-position: top left;
+  position: absolute;
+  top: 10px;
+  width: 150px;
+  height: 300px;
+  background: url('../img/borderGraphic.png') no-repeat top right;
   background-size: contain;
-  z-index: 10;
   pointer-events: none;
+  z-index: 10;
 }
 
 .corner-left {
-  left: 0;
-  background-image: url('../img/borderGraphic.png');
+  left: 10px;
   
 }
 
 .corner-right {
-  right: 0;
-  background-image: url('../img/borderGraphic.png');
-  transform: scaleX(-1); /* horizontal flip for symmetry */
+  right: 10px;
+  transform: scaleX(-1);
 }
 
+
+/* corner graphic styles end */
 
 
 
@@ -73,10 +172,10 @@ body {
 }
 
 
-
+/* footer styles start */
 .footer {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--color-link);
+  color: var(--color-bg);
   text-align: center;
   padding: 2rem 1rem;
 }
@@ -117,11 +216,63 @@ body {
 }
 
 .contact-list li a {
-  color: #ffffff;
+  color: var(--color-bg);
   text-decoration: underline;
   transition: color 0.2s ease;
 }
 
 .contact-list li a:hover {
-  color: #ccc;
+  color: var(--color-link-hover);
+}
+
+/* footer styles code :end */
+
+
+/* announcement styles :start */
+.announcement {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  text-align: center;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-top: 2px solid var(--color-accent);
+}
+
+.announcement h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+}
+
+.announcement p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.announcement a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.announcement a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* announcement style :end */
+
+/* Initial hidden state */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When active (in view) */
+.animate-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
 }
