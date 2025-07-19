@@ -20,3 +20,17 @@ window.addEventListener('load', handleScrollAnimation);
 // setupNavigation();
 // loadTestimonials();
 // etc.
+
+
+function updateParallax() {
+  document.querySelectorAll('.parallax').forEach(el => {
+    const offset = window.pageYOffset;
+    const scrollSpeed = 0.5; // adjust for desired smoothness
+    const imageOffset = -offset * scrollSpeed; // scroll upward from bottom
+    el.style.backgroundPositionY = `${imageOffset}px`;
+  });
+}
+
+// window.addEventListener('load', updateParallax);
+
+window.addEventListener('scroll', updateParallax);
